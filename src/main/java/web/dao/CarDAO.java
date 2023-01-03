@@ -2,7 +2,6 @@ package web.dao;
 
 import org.springframework.stereotype.Component;
 import web.model.Car;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -11,7 +10,6 @@ import java.util.stream.Collectors;
 @Component
 public class CarDAO {
     private static int CAR_COUNT;
-    private int size;
     private List <Car> automobiles;
 
     {
@@ -23,14 +21,13 @@ public class CarDAO {
         automobiles.add(new Car(++CAR_COUNT,"BelAZ","Truck go fuck"));
 
     }
-    public List<Car> table() {
-        return automobiles.stream().limit(5).collect(Collectors.toList());
+    public List<Car> table(Integer size) {
+        if (size == null || size >=5){
+            return automobiles;
+        }
+        else{
+            return automobiles.stream().limit(size).collect(Collectors.toList());
+        }
     }
-//    public List<Car> table(Integer value) {
-//        if(value>=5)
-//            return automobiles;
-//        else
-//            return automobiles.stream().limit(value).collect(Collectors.toList());
-//    }
 
 }
