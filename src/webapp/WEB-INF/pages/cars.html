@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All OK</title>
+</head>
+<body>
+
+<div>
+    <table border="1">
+        <tr>
+            <th>id </th>
+            <th>name </th>
+            <th>comment </th>
+        </tr>
+
+
+        <tr th:each = "car:${cars}">
+            <td th:text="${car.getId()}"></td>
+            <td th:text="${car.getName()}"></td>
+            <td th:text="${car.getComment()}"></td>
+        </tr>
+    </table>
+</div>
+
+<!--
+<div>
+<th:block th:each="msg : ${cars}">
+    <h1 th:text="${msg}"></h1>
+
+</th:block>
+</div>
+-->
+
+<!--<div th:block th:each="car : ${cars}">
+    <h1 th:text="${car.getName()}"></h1>
+    <h1 th:text="${car.getComment()}"></h1>
+</div>-->
+</body>
+</html>
