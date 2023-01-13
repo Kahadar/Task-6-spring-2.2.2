@@ -4,11 +4,10 @@ import org.springframework.stereotype.Component;
 import web.model.Car;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 
 @Component
-public class CarDAO {
+public class CarDao {
     private static int CAR_COUNT;
     private List <Car> automobiles;
 
@@ -21,13 +20,14 @@ public class CarDAO {
         automobiles.add(new Car(++CAR_COUNT,"BelAZ","Truck go fuck"));
 
     }
-    public List<Car> table(Integer size) {
-        if (size == null || size >=5){
+
+    public List<Car> tableCars() {
+//        if (size == null || size >=5){
             return automobiles;
-        }
-        else{
-            return automobiles.stream().limit(size).collect(Collectors.toList());
-        }
+//        }
+//        else{
+//            return automobiles.stream().limit(size).collect(Collectors.toList());
+//        }
     }
 
 }
