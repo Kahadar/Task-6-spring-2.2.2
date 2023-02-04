@@ -9,7 +9,7 @@ import java.util.List;
 @Component
 public class CarDao {
     private static int CAR_COUNT;
-    private List <Car> automobiles;
+    private final List <Car> automobiles;
 
     {
         automobiles = new ArrayList<>();

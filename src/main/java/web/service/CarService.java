@@ -1,7 +1,6 @@
 package web.service;
 
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import web.dao.CarDao;
 import web.model.Car;
@@ -12,8 +11,12 @@ import java.util.stream.Collectors;
 @Service
 public class CarService {
 
-    @Autowired
-    private CarDao carDao;
+//    @Autowired
+    private final CarDao carDao;
+
+    public CarService(CarDao carDao) {
+        this.carDao = carDao;
+    }
 
 
     public List<Car> tableCars(Integer size){
